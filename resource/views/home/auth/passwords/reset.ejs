@@ -1,0 +1,53 @@
+<div class="row pt-5 justify-content-center" style="direction: rtl">
+  <div class="col-8">
+    <div class="card card-default">
+      <div class="card-header bg-danger">
+        <h5 class="text-center text-white fw-bold">بازیابی رمز عبور</h5>
+      </div>
+      <div class="card-body">
+        <form
+          style="direction: rtl"
+          class="form-horizontal login-form"
+          method="POST"
+          action="/auth/password/reset"
+          novalidate
+        >
+          <%- include(viewPath('layouts/error-messages')) -%>
+
+          <input type="hidden" name="token" value="<%= token%>" />
+          <div class="form-group mt-3">
+            <label for="email" class="control-label p-2"> ایمیل</label>
+            <input
+              id="email"
+              type="email"
+              class="form-control shadow-none"
+              name="email"
+              value="<%= old('email')%>"
+              required
+            />
+          </div>
+          <div class="form-group mt-3">
+            <label for="password" class="control-label p-2">رمز عبور جدید</label>
+            <input
+              id="password"
+              type="password"
+              class="form-control shadow-none"
+              name="password"
+              value="<%=  old('password') %>"
+              required
+            />
+          </div>
+          <br />
+          <div class="form-group"><%- recaptcha%></div>
+          <br />
+          <div class="form-group">
+            <button type="submit" class="btn btn-danger">
+              بازیابی  
+            </button>
+          </div>
+          <br />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

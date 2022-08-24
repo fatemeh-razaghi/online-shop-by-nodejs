@@ -1,0 +1,14 @@
+<% if(errors.length > 0) { %> 
+    <div class="alert alert-danger alert-dismissible">
+      <button
+        type="button"
+        class="btn-close shadow-none"
+        data-dismiss="alert"
+        aria-label="Close"
+      ></button>
+      <% errors.forEach(error => { %>
+        <%= error %><br>
+
+        <% }) %>
+    </div>
+    <% } %>

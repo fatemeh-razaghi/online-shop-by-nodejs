@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="نمایشport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%- defineContent('title') || 'پنل مدیریت' %></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+
+    <!-- Favicons -->
+    <link href="/assets/favicon.png" rel="icon" />
+    <%- style %> 
+  </head>
+  <body>
+    <!-- <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-0 text-center"> -->
+      <div class="row container-fluid navbar navbar-dark sticky-top flex-md-nowrap p-sm-0 ms-0">
+        <div class="col-4 site-title ">
+          <a class="nav-link" href="/">
+            <h2 class="me-4">
+              <img
+                src="/assets/favicon.png"
+                alt="rokhsareh logo"
+                width="50px"/>
+              ROKHSAREH SHOP
+            </h2></a>
+        </div>
+        <div class="col-sm-6 me-5 text-center">
+          <input
+            class="form-control form-control-dark w-50"
+            type="text"
+            placeholder="جستجو"
+            aria-label="Search"/>
+        </div>
+        <div class="col-sm-2 text-end ms-5">
+          <a class="btn btn-danger" href="/">خروج</a>
+        </div>
+      </div>
+    <!-- </nav> -->
+
+    <div class="container-fluid">
+      <div class="row">
+        <main role="main" class="col-md-9 mr-sm-auto col-lg-10 pt-3 px-4">
+          <%- body %>
+        </main>
+
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar mt-5">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  داشبورد
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  سفارشات
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/products">
+                  <span data-feather="shopping-cart"></span>
+                  محصولات
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="users"></span>
+                  کاربران
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="bar-chart-2"></span>
+                  گزارشات
+                </a>
+              </li>
+            </ul>
+
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
+            >
+              <span>گزارشات ذخیره شده</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  این ماه
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  ماه گذشته
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  شبکه های اجتماعی
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  فروش سالانه
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="/js/holder.min.js"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace();
+    </script>
+    <%- script %>
+  </body>
+</html>

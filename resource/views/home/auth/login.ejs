@@ -1,0 +1,67 @@
+<div class="row pt-5 justify-content-center" style="direction: rtl">
+  <div class="col-8">
+    <div class="card card-default">
+      <div class="card-header bg-danger">
+        <h5 class="text-center text-white fw-bold">ورود به سایت</h5>
+      </div>
+      <div class="card-body">
+        <form
+          style="direction: rtl"
+          class="form-horizontal login-form"
+          method="POST"
+          action="/auth/login"
+          novalidate
+        >
+          <%- include(viewPath('layouts/error-messages')) -%>
+
+          <div class="form-group mt-3">
+            <label for="email" class="control-label p-2"> ایمیل</label>
+            <input
+              id="email"
+              type="email"
+              class="form-control shadow-none"
+              name="email"
+              value="<%= old('email')%>"
+              required
+            />
+          </div>
+          <div class="form-group mt-3">
+            <label for="password" class="control-label p-2">رمز عبور</label>
+            <input
+              id="password"
+              type="password"
+              class="form-control shadow-none"
+              name="password"
+              value="<%= old('password')%>"
+              required
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <input type="checkbox" name="remember" />
+            <label for="remember">یادآوری ورود</label>
+          </div>
+          <br />
+          <div class="form-group"><%- recaptcha%></div>
+          <br />
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">ورود</button>
+            <!-- <a href="/auth/login/google" class="btn btn-danger">ورود با اکانت گوگل</a> -->
+          </div>
+          <br />
+          <div class="form-group">
+            <a
+              class="text-decoration-none d-inline-block"
+              href="/auth/password/reset">
+              رمز عبور را فراموش کردم!
+            </a>
+          </div>
+          <div class="form-group">
+            <a class="text-decoration-none" href="/auth/register"
+              >برای عضویت در سایت اینجا کلیک کنید</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

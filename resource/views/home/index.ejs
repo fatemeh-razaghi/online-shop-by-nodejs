@@ -1,0 +1,62 @@
+<!-- main section  -->
+<main>
+  <!-- first slider -->
+  <div class="container-fluid p-0">
+    <div class="site-slider">
+      <div class="slider-one">
+        <div>
+          <img
+            src="./assets/skincare-banner.jpg"
+            class="img-fluid"
+            alt="mask banner" />
+        </div>
+        <div>
+          <img
+            src="./assets/mask.jpg"
+            class="img-fluid"
+            alt="product banner"
+            height="100px"/>
+        </div>
+      </div>
+      <div class="slider-btn">
+        <span class="prev position-top"><i class="fas fa-chevron-left"></i></span>
+        <span class="next position-top right-0"><i class="fas fa-chevron-right"></i></span>
+      </div>
+    </div>
+  </div>
+</main>
+<br /><br />
+<!-- products -->
+<div class="container-fluid" style="direction: rtl">
+  <div class="row mb-3">
+    <div class="col-lg-12">
+      <h3 class="fw-bold">محصولات</h3>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row">
+    <% products.forEach(product=>{%>
+    <div class="col-6 col-md-3">
+      <div class="card mb-5" style="width: 18rem">
+        <img
+          src="<%=product.thumb%>"
+          class="card-img-top"
+          alt="<%=product.title%>"/>
+        <a href="<%= product.path() %>" class="btn button-color btn-sm" target="_blank">اطلاعات بیشتر</a>
+        <div class="card-body">
+          <h5 class="text-center">
+            <a
+              class="text-color text-decoration-none"
+              href="<%= product.path() %>" target="_blank"><%= product.title %></a>
+          </h5>
+          <div class="alert alert-color p-2 mb-2 text-center" role="alert">
+            <%=product.price%>
+          </div>
+          <a href="#" class="button-color btn btn-sm">افزودن به سبد خرید</a>
+        </div>
+      </div>
+    </div>
+    <%})%>
+  </div>
+</div>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%- defineContent('title') || 'محصولات مراقبت از پوست و مو رخساره شاپ'%></title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- CSS LINKS -->
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- FONT AWESOME ICONS -->
+    <script
+      src="https://kit.fontawesome.com/a54b39911b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- SLICK SLIDER-->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <!-- Favicons -->
+    <link href="/assets/favicon.png" rel="icon" />
+
+    <%- style%>
+  </head>
+  <body>
+    <!-- header -->
+    <header id="header" class="container-fluid p-2">
+      <div class="row">
+        <div class="col-sm-8 site-title">
+        <a href="/" class="text-decoration-none" style="color: 
+        #b84e50;">
+            <h2>
+                <img
+                  src="/assets/favicon.png"
+                  alt="rokhsareh logo"
+                  width="50px"
+                />ROKHSAREH SHOP
+              </h2>
+        </a>
+        </div>
+        <div class="col-sm-4 text-end mt-2">
+          <!-- Authentication -->
+         <% if(auth.check){%>
+          <a href="/logout" class="text-decoration-none btn btn-danger">خروج</a>
+          <a href="/user-panel" class="text-decoration-none btn btn-primary">پنل کاربری</a>
+          <% }else{%>
+            <a href="/auth/register" class="text-decoration-none btn btn-danger">عضویت</a>
+            <a href="/auth/login" class="text-decoration-none btn btn-primary">ورود</a>
+            <% }%>
+        </div>
+      </div>
+    </header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <!-- Cart -->
+        <a
+          href="#"
+          class="position-relative"
+          data-bs-toggle="offcanvas"
+          data-bd-target="#Cart"
+          aria-controls="Cart">
+          <i
+            class="fas fa-shopping-bag fa-2x text-danger rounded-circle p-2 pt-0 pb-0"
+            aria-hidden="true"></i>
+          <span
+            class="translate-middle rounded-pill bg-primary text-light p-1 pb-0 pt-0"
+            id="count-cart">
+            0</span>
+        </a>
+        <form class="d-flex flex-row-reverse">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="دنبال چی می گردی؟"
+            aria-label="Search"
+          />
+          <button class="btn btn-danger ms-1" type="submit">جستجو</button>
+        </form>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/products"> همه محصولات</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                مراقبت از پوست بدن
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/hand-feet-cream">کرم های دست و پا</a></li>
+                <li><a class="dropdown-item" href="/body-scrab"> اسکراب بدن</a></li>
+                <li><a class="dropdown-item" href="/body-lotion">لوسیون بدن</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                مراقبت از پوست
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/sheet-mask">شیت ماسک</a></li>
+                <li><a class="dropdown-item" href="/bowl-mask">ماسک کاسه ای</a></li>
+                <li><a class="dropdown-item" href="/face-cleaner">ژل شستشو</a></li>
+                <li>
+                  <a class="dropdown-item" href="/tooner-mislarwater">تونر و میسلار واتر</a>
+                </li>
+                <li><a class="dropdown-item" href="/night-day-cream"> کرم روز و شب</a></li>
+                <li><a class="dropdown-item" href="/hydration">آبرسان</a></li>
+                <li><a class="dropdown-item" href="#">کرم دور چشم</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                مراقبت از مو
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">ماسک مو داخل حمام</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">ماسک مو بعد از حمام</a>
+                </li>
+                <li><a class="dropdown-item" href="#">سروم مو</a></li>
+                <li><a class="dropdown-item" href="#">شامپو</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/call-us">تماس با ما</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<%- body%>
+
+
+<!-- Footer -->
+<footer class="py-2 footer">
+  <div class="row">
+    <div class="col-6 col-md-2 ms-4">
+      <h4>درباره رخساره شاپ</h4>
+      <br>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2  text-nowrap">این سایت صرفا برای ارائه پروژه دانشگاه و به عنوان نمونه کار طراحی شده است.</li>
+      </ul>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-1"><a target="_blank" href="https://web.whatsapp.com/send?phone=989389788779"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="30px"/></a></li>
+        <li class="ms-1"><a target="_blank" href="https://instagram.com/fateme_razaghi_pv"><img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" width="30px"/></a></li>
+        <li class="ms-1"><a target="_blank" href="https://t.me/fatemeh_raz8779"><img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" width="30px"/></a></li>
+        <li class="ms-1"><a target="_blank" href="https://www.linkedin.com/in/fatemeh-razaghi-a43397245"><img src="https://img.icons8.com/fluency/48/000000/linkedin.png"  width="30px"/></a></li>
+      </ul>
+    </div>
+    <div
+      class="d-flex flex-column flex-sm-row justify-content-center border-top py-0">
+      <address class="mt-4">
+        طراحی شده توسط
+        <a
+        href="mailto: fatemeh8779@gmail.com"
+        class="mail-color text-decoration-none">فاطمه رزاقی</a>
+      </address>
+    </div>
+  </div>
+</footer>
+
+    
+    <!--  JS Files -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="/js/main.js"></script>
+    <%- script%>
+  </body>
+</html>
