@@ -19,7 +19,7 @@ const userSchema = mongoose.Schema(
   { timestamps: true, toJSON: { virtuals: true } }
 );
 
-
+//relationship between user and products
 userSchema.virtual("products" ,{
   ref:"Product",
   localField:"_id",
@@ -59,6 +59,10 @@ userSchema.methods.setRememberToken = function (res) {
   });
 };
 
-
+//user can buy or not?
+userSchema.methods.check= async function(product)
+{
+return false;
+}
 //export userschema in DB
 module.exports = mongoose.model("User", userSchema);

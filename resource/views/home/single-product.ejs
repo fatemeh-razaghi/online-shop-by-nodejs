@@ -1,16 +1,41 @@
-<div class="container-fluid text-center" style="direction:rtl ;">
+<div class="container-fluid text-center" style="direction: rtl">
   <div class="row">
     <!--  Post Content Column -->
     <div class="col">
-      <img src="<%=product.thumb%>" alt="<%=product.title%>" />
+      <img
+        src="<%=product.thumb%>"
+        alt="<%=product.title%>"
+        class="mt-5 d-inline-block"/>
     </div>
     <div class="col">
       <!-- Title -->
       <h1 class="mb-3"><%= product.title %></h1>
       <hr />
-    <!-- Post Content -->
-    <textarea rows="30" cols="80" disabled><%-product.body %></textarea>
-    <hr />
+      <!-- Post Content -->
+      <p class="fw-bold text-end">توضیحات:</p>
+      <textarea
+        rows="15"
+        cols="100"
+        disabled
+        style="
+          text-align: justify;
+          border-radius: 1rem;
+          text-justify: inter-word;
+          padding: 1rem;
+          color: #b84e50; "><%-product.body %></textarea>
+          <br><hr>
+      <div class="text-end">
+        <h3 class="text-end fw-bold">قیمت: <%=product.price%></h3>
+        <%if(auth.check){%>
+          <div class="alert alert-success w-75">شما عضو سایت هستید  میتوانید محصولات مورد نظر خود را به سبد خرید اضافه کنید</div>
+              <%}else{%>
+              <div class="alert alert-danger w-50">برای اضافه کردن محصولات به سبد خرید ابتدا عضو سایت شوید</div>
+              <%}%>
+        <a href="#" target="_blank" class="btn button-color"
+          >افزودن به سبد خرید</a>
+          
+      </div>
+      <br /><br />
     </div>
   </div>
 </div>

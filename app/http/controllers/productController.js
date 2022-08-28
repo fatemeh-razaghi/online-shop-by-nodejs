@@ -11,17 +11,28 @@ class productController extends controller {
 
   //product single page show
   async single(req, res) {
-
     //get slug from product model
     let product = await Product.findOne({ slug: req.params.product }).populate([
       {
-        path:"user",
-        select:"name"
+        path: "user",
+        select: "name",
+      },
+    ]);
+
+    //user permission for buy products
+    let userPermission = await this.canUserBuy(req, product);
+    res.render("home/single-product", { product , userPermission });
+  }
+
+  //user permission for buy products
+  async canUserBuy(req, product) {
+    let canUserBuy = false;
+    if (req.isAuthenticated()) {
+      if (product.type === "cash") {
+        canUserBuy = req.user.check(product);
       }
-    ])
-
-
-    res.render("home/single-product", { product });
+    }
+    return canUserBuy;
   }
 }
 

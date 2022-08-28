@@ -1,79 +1,96 @@
 /* fonts */
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Concert+One&family=Lobster&family=Patua+One&family=Satisfy&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Concert+One&family=Lobster&family=Patua+One&family=Satisfy&display=swap");
 
 @font-face {
-    font-family: Vazir;
-    src: url("./../fonts/Vazir-Regular.eot");
-    src: url("Vazir-Regular.eot?#iefix") format("embedded-opentype"),
-      url("./../fonts/Vazir-Regular.woff2") format("woff2"),
-      url("./../fonts/Vazir-Regular.woff") format("woff"),
-      url("./../fonts/Vazir-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-display: swap;
-  }
-
-  body {
-    font-family: Vazir, Arial, Helvetica, sans-serif !important;
-    font-size: 0.875rem !important;
-    font-weight: 300 ;
-    font-weight: bold ;
-    overflow-x: hidden;
-    color: #b84e50;
-  }
-
-.navbar-toggler:focus
-{
-         outline: none !important;
-         box-shadow: none;
+  font-family: Vazir;
+  src: url("./../fonts/Vazir-Regular.eot");
+  src: url("Vazir-Regular.eot?#iefix") format("embedded-opentype"),
+    url("./../fonts/Vazir-Regular.woff2") format("woff2"),
+    url("./../fonts/Vazir-Regular.woff") format("woff"),
+    url("./../fonts/Vazir-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
 }
 
-#header{ 
-background-color: #fabbbb;
-}
-.site-title{
-  font-family: 'Patua One', cursive;
-  color: 	rgb(211, 101, 101);
-}
-
-#count-cart{
-position: absolute;
-top: 23px;
-right: -3px;
-font-size: 10px;
+body {
+  font-family: Vazir, Arial, Helvetica, sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 300;
+  font-weight: bold;
+  overflow-x: hidden;
+  color: #b84e50;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.navbar{
-  background-color:  #fabbbb ;
+input {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+a {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+#header {
+  background-color: #fabbbb;
+}
+.site-title {
+  font-family: "Patua One", cursive;
+  color: rgb(211, 101, 101);
+}
+
+#count-cart {
+  position: absolute;
+  top: 23px;
+  right: -3px;
+  font-size: 10px;
+}
+
+.navbar {
+  background-color: #fabbbb;
   border-top: 2px groove #fff;
   direction: rtl;
 }
 
-.navbar ul a{
+.navbar ul a {
   color: #be5855 !important;
- text-align: right;
+  text-align: right;
 }
-.navbar ul a:hover{
+.navbar ul a:hover {
   color: #fff !important;
 }
 
-.navbar .dropdown-item:hover{
+.navbar .dropdown-item:hover {
   background-color: #fce5e5;
 }
 
 /** Slider One*/
 
-.site-slider{
+.site-slider {
   position: relative;
 }
 
-.position-top{
+.position-top {
   position: absolute;
   top: 50%;
-} 
+}
 
 .site-slider .slider-btn .prev,
-.site-slider .slider-btn .next{
-  background-color:rgb(211, 129, 127);
+.site-slider .slider-btn .next {
+  background-color: rgb(211, 129, 127);
   padding: 1rem 1.5rem;
   border-radius: 10rem;
   color: #fff;
@@ -82,18 +99,18 @@ font-size: 10px;
   transition: opacity 1s ease;
 }
 
-.right-0{
+.right-0 {
   right: 0;
 }
 
 .site-slider:hover .slider-btn .prev,
-.site-slider:hover .slider-btn .next{
+.site-slider:hover .slider-btn .next {
   opacity: 1;
-} 
+}
 
 /* Slick Dots*/
 
-.slick-dots{
+.slick-dots {
   display: flex;
   justify-content: center;
   margin: 0;
@@ -104,49 +121,95 @@ font-size: 10px;
   right: 50%;
 }
 
-.slick-dots li{
+.slick-dots li {
   margin: 0 0.6rem;
 }
 
-.slick-dots button{
+.slick-dots button {
   display: block;
-   width: 0.5rem;
-   height: 0.5rem;
-   padding: 0;
-   border: none;
-   background-color: white;
-   text-indent: -99999px;
-    border-radius: 100%;
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: none;
+  background-color: white;
+  text-indent: -99999px;
+  border-radius: 100%;
 }
 
-.slick-dots li.slick-active button{
+.slick-dots li.slick-active button {
   transform: scale(2.5);
-  box-shadow: 0 3px 5px 1px rgba(0 ,0, 0, 0.205);
+  box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.205);
 }
 
-.button-color{
+.button-color {
   background-color: rgb(233 129 131);
   color: #fff;
 }
+.button-color:hover {
+  color: #fff;
+  background-color: rgb(210, 120, 121);
+}
 
-.alert-color{
-  background-color:rgb(239 208 208);
+.alert-color {
+  background-color: rgb(239 208 208);
 }
-.text-color{
-  color: rgb(184,78,80);
+
+.card-title-color {
+  background-color: #b9585a;
 }
-.text-color:hover{
+.main-btn-color {
+  background-color: #c36769;
+  color: #fff;
+}
+
+.main-btn-color:hover {
+  background-color: #b35a5b;
+  color: #fff;
+}
+
+.text-color {
+  color: #b35a5b;
+}
+
+.text-color:hover {
   color: rgb(222, 135, 136);
 }
-.footer{
-  background-color: rgb(250,187,187);
+.footer {
+  background-color: rgb(250, 187, 187);
   direction: rtl;
 }
-.mail-color{
-  color:rgb(184,78,80);
+.mail-color {
+  color: rgb(184, 78, 80);
 }
-.mail-color:hover{
+.mail-color:hover {
   color: rgb(133, 73, 74);
 }
 
+.basket-color {
+  color: #c36769;
+}
+.basket-color:hover {
+  color: #b35a5b;
+}
+.login-button {
+  background-color: #8b8687;
+  color: #fff;
+}
 
+.login-button:hover {
+  background-color: #827e7f;
+  color: #fff;
+}
+
+.count-bg {
+  background-color: #9f999a;
+}
+
+.exit-button{
+  background-color: #8b8687;
+  color: #fff;
+}
+.exit-button:hover{
+  background-color: #827e7f;
+  color: #fff;
+}

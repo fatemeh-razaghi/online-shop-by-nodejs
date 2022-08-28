@@ -45,11 +45,11 @@
         <div class="col-sm-4 text-end mt-2">
           <!-- Authentication -->
          <% if(auth.check){%>
-          <a href="/logout" class="text-decoration-none btn btn-danger">خروج</a>
-          <a href="/user-panel" class="text-decoration-none btn btn-primary">پنل کاربری</a>
+          <a href="/logout" class="text-decoration-none btn exit-button">خروج</a>
+          <a href="/user-panel" class="text-decoration-none btn main-btn-color">پنل کاربری</a>
           <% }else{%>
-            <a href="/auth/register" class="text-decoration-none btn btn-danger">عضویت</a>
-            <a href="/auth/login" class="text-decoration-none btn btn-primary">ورود</a>
+            <a href="/auth/register" class="text-decoration-none btn main-btn-color">عضویت</a>
+            <a href="/auth/login" class="text-decoration-none btn login-button">ورود</a>
             <% }%>
         </div>
       </div>
@@ -65,10 +65,10 @@
           data-bd-target="#Cart"
           aria-controls="Cart">
           <i
-            class="fas fa-shopping-bag fa-2x text-danger rounded-circle p-2 pt-0 pb-0"
+            class="fas fa-shopping-bag fa-2x basket-color rounded-circle p-2 pt-0 pb-0"
             aria-hidden="true"></i>
           <span
-            class="translate-middle rounded-pill bg-primary text-light p-1 pb-0 pt-0"
+            class="translate-middle rounded-pill count-bg text-light p-1 pb-0 pt-0"
             id="count-cart">
             0</span>
         </a>
@@ -79,7 +79,7 @@
             placeholder="دنبال چی می گردی؟"
             aria-label="Search"
           />
-          <button class="btn btn-danger ms-1" type="submit">جستجو</button>
+          <button class="btn main-btn-color ms-1" type="submit">جستجو</button>
         </form>
         <button
           class="navbar-toggler"
@@ -172,7 +172,7 @@
 
 
 <!-- Footer -->
-<footer class="py-2 footer">
+<footer class="py-2 footer mt-auto">
   <div class="row">
     <div class="col-6 col-md-2 ms-4">
       <h4>درباره رخساره شاپ</h4>
