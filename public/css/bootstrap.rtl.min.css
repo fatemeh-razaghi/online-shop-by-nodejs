@@ -4579,16 +4579,16 @@ fieldset:disabled .btn {
 }
 .page-link:hover {
   z-index: 2;
-  color: #0a58ca;
-  background-color: #e9ecef;
-  border-color: #dee2e6;
+  color: #cf7171;
+  background-color: #f2dcdc;
+  border-color: #f2dcdc;
 }
 .page-link:focus {
   z-index: 3;
-  color: #0a58ca;
-  background-color: #e9ecef;
+  color: #f2dcdc;
+  background-color: #f2dcdc;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  box-shadow: 0 0 0 0.25rem #f2dcdc;
 }
 .page-item:not(:first-child) .page-link {
   margin-right: -1px;

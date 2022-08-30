@@ -5,8 +5,16 @@ const controller = require("app/http/controllers/controller");
 const Product = require("app/models/product");
 
 class productController extends controller {
-  async index(req, res) {
-    res.render("home/products");
+  async products(req, res) {
+
+    //set pagination config
+    let page = req.query.page || 1;
+    let query = {};
+    let products= await Product.paginate(
+      { ...query, $or: [{ title: new RegExp(req.query.search, "gi") }] },
+      { page, sort: { createdAt: 1 }, limit: 4 });
+
+      res.render("home/products" , {products}); 
   }
 
   //product single page show
@@ -21,7 +29,7 @@ class productController extends controller {
 
     //user permission for buy products
     let userPermission = await this.canUserBuy(req, product);
-    res.render("home/single-product", { product , userPermission });
+    res.render("home/single-product", { product, userPermission });
   }
 
   //user permission for buy products

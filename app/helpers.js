@@ -19,6 +19,7 @@ module.exports = class Helpers {
       viewPath: this.viewPath,
       ...this.getGlobalVariables(),
       old: this.old,
+      req:this.req,
     };
   }
 

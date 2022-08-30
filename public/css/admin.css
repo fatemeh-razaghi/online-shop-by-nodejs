@@ -17,6 +17,7 @@ body {
   font-weight: 300;
   text-align: right;
   color: #5a5a5a;
+  overflow-x: hidden;
 }
 h1,
 h2 {
@@ -24,6 +25,20 @@ h2 {
   font-weight: bold;
   font-family: "Patua One", cursive;
   padding-top: 5px;
+}
+input {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+a {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .feather {
@@ -102,7 +117,6 @@ h2 {
   color: #fff;
 }
 
-
 .navbar .form-control {
   padding: 0.75rem 1rem;
   border-width: 0;
@@ -128,5 +142,24 @@ h2 {
 }
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
+  direction: rtl;
+}
+
+.bg-nav {
+  background-color: #fabbbb;
+}
+
+.main-btn-color {
+  background-color: #c36769;
+  color: #fff;
+}
+
+.main-btn-color:hover {
+  background-color: #b35a5b;
+  color: #fff;
+}
+
+.footer {
+  background-color: rgb(250, 187, 187);
   direction: rtl;
 }

@@ -174,10 +174,7 @@ a {
 .text-color:hover {
   color: rgb(222, 135, 136);
 }
-.footer {
-  background-color: rgb(250, 187, 187);
-  direction: rtl;
-}
+
 .mail-color {
   color: rgb(184, 78, 80);
 }
@@ -212,4 +209,9 @@ a {
 .exit-button:hover{
   background-color: #827e7f;
   color: #fff;
+}
+
+.footer {
+  background-color: rgb(250, 187, 187);
+  direction: rtl;
 }

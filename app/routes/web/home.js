@@ -14,8 +14,10 @@ router.get("/", homeController.index);
 //call us page
 router.get("/call-us" , homeController.callus);
 
+
 //product page
-router.get("/products" , productController.index);
+router.get("/products" , productController.products);
+
 
 //product single page
 router.get("/products/:product" , productController.single);

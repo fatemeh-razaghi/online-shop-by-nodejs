@@ -1,1 +1,42 @@
-<h1>محصولات</h1>
+<!-- products -->
+<div class="container-fluid" style="direction: rtl">
+    <div class="row mb-3">
+      <div class="col-lg-12">
+         <br>
+        <h3 class="fw-bold">محصولات</h3>
+
+        <% let {search}=req.query %>
+        <% if(search){ %>
+        <input type="hidden" name="search" value="<%= search %>">
+        <span>فیلتر بر اساس: <%= search %></span>
+        <%}%>
+        <hr />
+      </div>
+    </div>
+  
+    <div class="row">
+      <% products.docs.forEach(product=>{%>
+      <div class="col-6 col-md-3">
+        <div class="card mb-5" style="width: 18rem">
+          <img
+            src="<%=product.thumb%>"
+            class="card-img-top"
+            alt="<%=product.title%>"/>
+          <a href="<%= product.path() %>" class="btn button-color btn-sm" target="_blank">اطلاعات بیشتر</a>
+          <div class="card-body">
+            <h5 class="text-center">
+              <a
+                class="text-color text-decoration-none"
+                href="<%= product.path() %>" target="_blank"><%= product.title %></a>
+            </h5>
+            <div class="alert alert-color p-2 mb-2 text-center" role="alert">
+              <%=product.price%>
+            </div>
+            <a href="#" class="button-color btn btn-sm ">افزودن به سبد خرید</a>
+          </div>
+        </div>
+      </div>
+      <%})%>
+    </div>
+  </div>
+  <%- include(viewPath('layouts/pagination') ,{ pagination : products}) %>
