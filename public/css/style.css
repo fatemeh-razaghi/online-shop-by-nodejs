@@ -72,9 +72,9 @@ a {
 .navbar ul a:hover {
   color: #fff !important;
 }
-
 .navbar .dropdown-item:hover {
-  background-color: #fce5e5;
+  background-color: #fdcdcd;
+  transition: 0.75;
 }
 
 /** Slider One*/
@@ -202,11 +202,11 @@ a {
   background-color: #9f999a;
 }
 
-.exit-button{
+.exit-button {
   background-color: #8b8687;
   color: #fff;
 }
-.exit-button:hover{
+.exit-button:hover {
   background-color: #827e7f;
   color: #fff;
 }

@@ -37,7 +37,7 @@ createProductSchema.methods.typeToPersian = function () {
   }
 };
 
-//
+//define slug for friendly URL
 createProductSchema.methods.path=function(){
 return `/products/${this.slug}`;
 }

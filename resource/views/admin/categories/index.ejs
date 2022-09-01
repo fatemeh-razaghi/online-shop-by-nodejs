@@ -1,0 +1,48 @@
+<div
+  class="d-flex justify-content-between align-items-center mb-3 border-bottom-1"
+  style="direction: rtl">
+  <h2>دسته بندی ها</h2>
+  <div class="btn-group" style="direction: ltr">
+    <a href="/admin/categories/create" class="btn btn-sm btn-primary"
+      >افزودن دسته جدید</a>
+  </div>
+</div>
+<div class="table-responsive">
+  <table
+    class="table table-striped table-bordered text-center "
+    style="direction: rtl"
+  >
+    <thead>
+      <tr>
+        <th>نام دسته</th>
+        <th>نوع دسته</th>
+        <th>تنظیمات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% categories.docs.forEach(cate=>{ %>
+      <tr>
+        <td><a href="/categories/رخساره-شاپ" class="text-decoration-none text-black"><%= cate.name %></a></td>
+        <td><%=cate.parent ? cate.parent.name : "دسته اصلی"%></td>
+        <td>
+          <form
+            action="/admin/categories/<%= cate.id %>?_method=DELETE"
+            method="post"
+            style="direction: ltr"
+          >
+            <div class="btn-group btn-group-sm">
+              <a
+                href="/admin/categories/<%= cate.id %>/edit"
+                class="btn btn-primary"
+                >ویرایش</a
+              >
+              <button type="submit" class="btn btn-danger">حذف</button>
+            </div>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<%-include(viewPath('layouts/pagination') ,{pagination:categories})%>
+</div>
