@@ -62,7 +62,6 @@ module.exports = class controller {
   // validate mongo id
   validateMongoId(paramId) {
     if(! isMongoId(paramId)) this.error("چنین آیدی ای ثبت نشده است" , 404);
-
   }
 
   error(message , status=500){

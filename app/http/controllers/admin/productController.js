@@ -4,6 +4,9 @@ const controller = require("app/http/controllers/controller");
 //call product model
 const Product = require("app/models/product");
 
+//call category model
+const Category = require("app/models/category");
+
 //require file system
 const fs = require("fs");
 
@@ -21,12 +24,12 @@ class productController extends controller {
       let page = req.query.page || 1;
       let products = await Product.paginate(
         {},
-        { page, sort: { createdAt: 1 }, limit: 2},
+        { page, sort: { createdAt: 1 }, limit: 2 }
       );
       res.render("admin/products/index", { title: "بخش محصولات", products });
     } catch (err) {
       next(err);
-    }
+    } 
   }
 
   //show create product page
@@ -77,12 +80,13 @@ class productController extends controller {
       //access product in DB
       let product = await Product.findById(req.params.id);
 
-      if (!product) {
-        this.error("چنین محصولی یافت نشد", 404);
-      }
+      if (!product) this.error("چنین محصولی یافت نشد", 404);
+
+      let categories = await Category.find({});
 
       return res.render("admin/products/edit", {
         product,
+        categories,
         title: "ویرایش محصول",
       });
     } catch (err) {
@@ -123,7 +127,8 @@ class productController extends controller {
 
       //save changes in DB
       await Product.findByIdAndUpdate(req.params.id, {
-        $set: { ...req.body, ...objForUpdate }})
+        $set: { ...req.body, ...objForUpdate },
+      });
 
       //redirect to products page
       return res.redirect("/admin/products");

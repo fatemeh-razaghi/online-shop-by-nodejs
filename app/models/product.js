@@ -9,6 +9,7 @@ const mongoosePaginate = require("mongoose-paginate");
 const createProductSchema = Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: "User" },
+    categories: [{ type: Schema.Types.ObjectId, ref: "Category" }],
     title: { type: String, required: true },
     type: { type: String, required: true },
     slug: { type: String, required: true },
@@ -19,8 +20,14 @@ const createProductSchema = Schema(
     tags: { type: String, required: true },
     viewCount: { type: Number, default: 0 },
   },
-  { timestamps: true }
+  { timestamps: true, toJSON: { virtuals: true } }
 );
+
+createProductSchema.virtual("category", {
+  ref: "Category",
+  localField: "_id",
+  foreignField: "products",
+});
 
 //use oaginate plugin for showing products
 createProductSchema.plugin(mongoosePaginate);
@@ -38,9 +45,9 @@ createProductSchema.methods.typeToPersian = function () {
 };
 
 //define slug for friendly URL
-createProductSchema.methods.path=function(){
-return `/products/${this.slug}`;
-}
+createProductSchema.methods.path = function () {
+  return `/products/${this.slug}`;
+};
 
 //export model in mongodb
 module.exports = mongoose.model("Product", createProductSchema);

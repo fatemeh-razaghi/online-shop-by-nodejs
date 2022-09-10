@@ -1,5 +1,6 @@
 //require mongoose
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 //require bcrypt package
 const bcrypt = require("bcrypt");
@@ -8,7 +9,7 @@ const bcrypt = require("bcrypt");
 const uniqueString = require("unique-string");
 
 //define a schema of user in DB
-const userSchema = mongoose.Schema(
+const userSchema = Schema(    
   {
     name: { type: String, required: true },
     admin: { type: Boolean, default: 0 },
@@ -20,11 +21,11 @@ const userSchema = mongoose.Schema(
 );
 
 //relationship between user and products
-userSchema.virtual("products" ,{
-  ref:"Product",
-  localField:"_id",
-  foreignField:"user"
-})
+userSchema.virtual("products", {
+  ref: "Product",
+  localField: "_id",
+  foreignField: "user",
+});
 //hash password after save user information in MD
 userSchema.pre("save", function (next) {
   let salt = bcrypt.genSaltSync(15);
@@ -60,9 +61,8 @@ userSchema.methods.setRememberToken = function (res) {
 };
 
 //user can buy or not?
-userSchema.methods.check= async function(product)
-{
-return false;
-}
+userSchema.methods.check = async function (product) {
+  return false;
+};
 //export userschema in DB
 module.exports = mongoose.model("User", userSchema);

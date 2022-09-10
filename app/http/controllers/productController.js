@@ -6,28 +6,33 @@ const Product = require("app/models/product");
 
 class productController extends controller {
   async products(req, res) {
-
     //set pagination config
     let page = req.query.page || 1;
     let query = {};
-    let products= await Product.paginate(
+    let products = await Product.paginate(
       { ...query, $or: [{ title: new RegExp(req.query.search, "gi") }] },
-      { page, sort: { createdAt: 1 }, limit: 4 });
+      { page, sort: { createdAt: 1 }, limit: 4 }
+    );
 
-      res.render("home/products" , {products}); 
+    res.render("home/products", { products });
   }
 
   //product single page show
   async single(req, res) {
-    //get slug from product model
-    let product = await Product.findOne({ slug: req.params.product }).populate([
-      {
-        path: "user",
-        select: "name",
-      },
-    ]);
+    //get slug and category from product model
+    let product = await Product.findOne({ slug: req.params.product })
+      .populate([
+        {
+          path: "user",
+          select: "name",
+        },
+        {
+          path:"categories",
+          select:"name",
+        }
+      ]).exec();     
 
-    //user permission for buy products
+    // user permission for buy products
     let userPermission = await this.canUserBuy(req, product);
     res.render("home/single-product", { product, userPermission });
   }
@@ -39,7 +44,7 @@ class productController extends controller {
       if (product.type === "cash") {
         canUserBuy = req.user.check(product);
       }
-    }
+    }     
     return canUserBuy;
   }
 }

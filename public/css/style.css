@@ -215,3 +215,14 @@ a {
   background-color: rgb(250, 187, 187);
   direction: rtl;
 }
+
+.category-text-color{
+  color:#b35a5b;
+  text-decoration:none;
+  font-weight: bold;
+}
+
+.category-text-color:hover{
+  color:rgb(222, 135, 136) ;
+  font-weight: bold;
+}

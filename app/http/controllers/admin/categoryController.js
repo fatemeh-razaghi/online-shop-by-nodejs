@@ -13,7 +13,7 @@ class categoryController extends controller {
       let categories = await Category.paginate(
         {},
         { page, sort: { createdAt: 1 }, limit: 10, populate: "parent" }
-      );
+      );  
 
       res.render("admin/categories/index", {
         title: "دسته بندی ها ",
