@@ -7,20 +7,18 @@ const router = express.Router();
 const homeController = require("app/http/controllers/homeController");
 const productController = require("app/http/controllers/productController");
 
-
 //main page
 router.get("/", homeController.index);
 
 //call us page
-router.get("/call-us" , homeController.callus);
-
+router.get("/call-us", homeController.callus);
 
 //product page
-router.get("/products" , productController.products);
-
+router.get("/products", productController.products);
 
 //product single page
-router.get("/products/:product" , productController.single);
+router.get("/products/:product", productController.single);
+
 
 //logout page
 router.get("/logout", (req, res) => {
@@ -28,6 +26,5 @@ router.get("/logout", (req, res) => {
   res.clearCookie("remember_token");
   res.redirect("/");
 });
-
 
 module.exports = router;

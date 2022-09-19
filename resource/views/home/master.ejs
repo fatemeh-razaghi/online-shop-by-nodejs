@@ -58,8 +58,12 @@
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
         <!-- Cart -->
-        <a
-          href="#"
+        <!-- <form action="/cart" method="GET">
+          <button
+          style="border:none;
+          background-color: #fabbbb;"
+          type="submit"
+          target="_blank"
           class="position-relative"
           data-bs-toggle="offcanvas"
           data-bd-target="#Cart"
@@ -70,8 +74,11 @@
           <span
             class="translate-middle rounded-pill count-bg text-light p-1 pb-0 pt-0"
             id="count-cart">
-            0</span>
-        </a>
+           0</span>
+        </button>
+        
+        </form>
+           -->
         <form class="d-flex flex-row-reverse" action="/products" method="GET">
           <input
             class="form-control me-2"
@@ -94,14 +101,14 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-3 mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/products"> همه محصولات</a>
             </li>
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -161,7 +168,7 @@
                 <li><a class="dropdown-item" href="#">سرم مو</a></li>
                 <li><a class="dropdown-item" href="#">شامپو</a></li>
               </ul>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="/call-us">تماس با ما</a>
             </li>

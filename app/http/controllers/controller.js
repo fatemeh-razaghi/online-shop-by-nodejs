@@ -61,12 +61,12 @@ module.exports = class controller {
 
   // validate mongo id
   validateMongoId(paramId) {
-    if(! isMongoId(paramId)) this.error("چنین آیدی ای ثبت نشده است" , 404);
+    if (!isMongoId(paramId)) this.error("چنین آیدی ای ثبت نشده است", 404);
   }
 
-  error(message , status=500){
-    let err=new Error(message);
-    err.status=status;
+  error(message, status = 500) {
+    let err = new Error(message);
+    err.status = status;
     throw err;
   }
 
@@ -75,4 +75,8 @@ module.exports = class controller {
     req.flash("formData", req.body);
     return res.redirect(req.get("referer") || "/");
   }
+  //slug method for URL title
+  slug(title) {
+    return title.replace(/([^۰-۹آ-یa-z0-9]|-)+/g , "-")
+}
 };

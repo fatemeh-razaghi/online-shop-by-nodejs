@@ -5,17 +5,33 @@
          <br>
         <h3 class="fw-bold">محصولات</h3>
 
-        <% let {search}=req.query %>
+        <% let {search , category}=req.query %>
         <% if(search){ %>
         <input type="hidden" name="search" value="<%= search %>">
         <span>فیلتر بر اساس: <%= search %></span>
         <%}%>
         <hr />
       </div>
+      <form action="" method="GET">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn main-btn-color" type="submit">فیلتر</button>
+            </span>
+            <select name="category" class="form-control w-25" >
+              <option value="all">همه دسته ها</option>
+                 <% categories.forEach(cate => { %>
+                <option value="<%= cate.slug %>" <%= cate.slug === category ? 'selected' : '' %> ><%= cate.name %></option>
+                 <% }) %>
+            </select>
+          </div>
     </div>
-  
+</form>
+    <br>
+    </div>
+  <br>
+  <% if(products.length) { %> 
     <div class="row">
-      <% products.docs.forEach(product=>{%>
+      <% products.forEach(product=>{%>
       <div class="col-6 col-md-3">
         <div class="card mb-5" style="width: 18rem">
           <img
@@ -32,11 +48,15 @@
             <div class="alert alert-color p-2 mb-2 text-center" role="alert">
               <%=product.price%>
             </div>
-            <a href="#" class="button-color btn btn-sm ">افزودن به سبد خرید</a>
           </div>
         </div>
       </div>
       <%})%>
     </div>
+    <% } else { %>
+      <div class="row">
+<h1 class="text-center" style="direction: rtl;">محصول مورد نظر یافت نشد!</h1>
+      </div>
+  <%} %>
   </div>
   <%- include(viewPath('layouts/pagination') ,{ pagination : products}) %>

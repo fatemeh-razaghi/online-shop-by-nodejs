@@ -1,24 +1,38 @@
 //call controllers
 const controller = require("app/http/controllers/controller");
 
+//call category model from MD
+const Category = require("app/models/category");
+
 //require Product model from MD
 const Product = require("app/models/product");
 
 class productController extends controller {
   async products(req, res) {
-    //set pagination config
-    let page = req.query.page || 1;
     let query = {};
-    let products = await Product.paginate(
-      { ...query, $or: [{ title: new RegExp(req.query.search, "gi") }] },
-      { page, sort: { createdAt: 1 }, limit: 4 }
-    );
+    let { search , category } = req.query;
 
-    res.render("home/products", { products });
-  }
+    if(search) 
+        query.title = new RegExp(search , 'gi');
+
+    if(category && category != 'all') {
+        category = await Category.findOne({ slug : category});
+        if(category) 
+            query.categories = { $in : [ category.id ]}
+    }
+
+    let products = Product.find({ ...query});
+
+    products = await products.exec();
+
+    let categories = await Category.find({});
+
+      
+    res.render("home/products", { products, categories });
+  }  
 
   //product single page show
-  async single(req, res) {
+  async single(req, res) { 
     //get slug and category from product model
     let product = await Product.findOne({ slug: req.params.product })
       .populate([
@@ -27,25 +41,13 @@ class productController extends controller {
           select: "name",
         },
         {
-          path:"categories",
-          select:"name",
-        }
-      ]).exec();     
+          path: "categories",
+          select: "name",
+        },
+      ])
+      .exec();
 
-    // user permission for buy products
-    let userPermission = await this.canUserBuy(req, product);
-    res.render("home/single-product", { product, userPermission });
-  }
-
-  //user permission for buy products
-  async canUserBuy(req, product) {
-    let canUserBuy = false;
-    if (req.isAuthenticated()) {
-      if (product.type === "cash") {
-        canUserBuy = req.user.check(product);
-      }
-    }     
-    return canUserBuy;
+    res.render("home/single-product", { product });
   }
 }
 

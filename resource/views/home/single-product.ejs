@@ -34,17 +34,16 @@
         <h3 class="text-end fw-bold">قیمت: <%=product.price%></h3>
         <%if(auth.check){%>
         <div class="alert alert-success w-75">
-          شما عضو سایت هستید میتوانید محصولات مورد نظر خود را به سبد خرید اضافه
-          کنید
+          شما عضو سایت هستید میتوانید محصولات مورد نظر خود را خرید کنید
         </div>
-        <%}else{%>
+        <% } else { %>
         <div class="alert alert-danger w-50">
-          برای اضافه کردن محصولات به سبد خرید ابتدا عضو سایت شوید
+          برای خرید محصول ابتدا عضو سایت شوید
         </div>
-        <%}%>
-        <form action="/cart" method="post">
-          <button type="submit" class="btn button-color">افزودن به سبد خرید</button>
-          <input type="hidden" name="product" value="<%= product._id %>">
+        <% } %>
+        <form action="/add-to-cart" method="POST">
+          <button type="submit" class="btn button-color">خرید محصول</button>
+          <input type="hidden" name="productId" value="<%= product._id %>">
         </form>
         <!-- Categories Widget -->
         <div class="card my-4">
@@ -53,7 +52,7 @@
             <div class="row">
               <div class="col">
                 <ul class="list-unstyled pr-0">
-                  <%product.categories.forEach(category => { %>
+                  <% product.categories.forEach(category=> { %>
                   <li class="d-inline ms-1">
                     <a class="category-text-color" href="/products?category=<%= category.slug %>"
                       >#<%= category.name %></a>  

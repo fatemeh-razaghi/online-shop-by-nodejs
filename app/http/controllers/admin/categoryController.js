@@ -13,7 +13,7 @@ class categoryController extends controller {
       let categories = await Category.paginate(
         {},
         { page, sort: { createdAt: 1 }, limit: 10, populate: "parent" }
-      );  
+      );
 
       res.render("admin/categories/index", {
         title: "دسته بندی ها ",
@@ -47,7 +47,7 @@ class categoryController extends controller {
       //create new category and save it in MD
       let newCategory = new Category({
         name,
-        slug:this.slug(name),
+        slug: this.slug(name),
         parent: parent !== "none" ? parent : null,
       });
 
@@ -94,7 +94,11 @@ class categoryController extends controller {
       //update information and set in MD
       let { name, parent } = req.body;
       await Category.findByIdAndUpdate(req.params.id, {
-        $set: { name, slug:this.slug(req.body.name), parent: parent !== "none" ? parent : null },
+        $set: {
+          name,
+          slug: this.slug(name),
+          parent: parent !== "none" ? parent : null,
+        },
       });
 
       return res.redirect("/admin/categories");
@@ -131,12 +135,6 @@ class categoryController extends controller {
       next(err);
     }
   }
-
-  //slug method for URL title
-  slug(name) {
-    return name.replace(/([^۰-۹آ-یa-z0-9]|-)+/g, "-");
-  }
 }
 
 module.exports = new categoryController();
-

@@ -9,7 +9,7 @@ const bcrypt = require("bcrypt");
 const uniqueString = require("unique-string");
 
 //define a schema of user in DB
-const userSchema = Schema(    
+const userSchema = Schema(
   {
     name: { type: String, required: true },
     admin: { type: Boolean, default: 0 },
@@ -60,9 +60,5 @@ userSchema.methods.setRememberToken = function (res) {
   });
 };
 
-//user can buy or not?
-userSchema.methods.check = async function (product) {
-  return false;
-};
 //export userschema in DB
 module.exports = mongoose.model("User", userSchema);

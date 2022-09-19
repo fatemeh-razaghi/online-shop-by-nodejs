@@ -29,12 +29,17 @@ class productController extends controller {
       res.render("admin/products/index", { title: "بخش محصولات", products });
     } catch (err) {
       next(err);
-    } 
+    }
   }
 
   //show create product page
-  create(req, res) {
-    res.render("admin/products/create", { title: "ایجاد محصول" });
+  async create(req, res) {
+    //get categories
+    let categories = await Category.find({});
+    res.render("admin/products/create", {
+      title: "ایجاد محصول",
+      categories,
+    });
   }
 
   //create new product here
@@ -196,11 +201,6 @@ class productController extends controller {
   //get image url without static view
   getImageUrl(dir) {
     return dir.substring(8);
-  }
-
-  //slug method for URL title
-  slug(title) {
-    return title.replace(/([^۰-۹آ-یa-z0-9]|-)+/g, "-");
   }
 }
 

@@ -28,11 +28,6 @@ class productValidator extends validator {
             );
         }),
 
-      check("type")
-        .not()
-        .isEmpty()
-        .withMessage("لطفا نوع محصول را انتخاب کنید"),
-
       check("body")
         .isLength({ min: 20 })
         .withMessage("فیلد توضیحات نمی تواند کمتر از 20 کاراکتر باشد"),

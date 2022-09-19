@@ -19,7 +19,6 @@
       <tr>
         <th>عنوان محصول</th>
         <th>مقدار بازدید</th>
-        <th>وضعیت محصول</th>
         <th>تنظیمات</th>
       </tr>
     </thead>
@@ -28,7 +27,6 @@
       <tr>
         <td><a href="/products/رخساره-شاپ" class="text-decoration-none text-black"><%= product.title %></a></td>
         <td><%= product.viewCount %></td>
-        <td><%= product.typeToPersian()%></td>
         <td>
           <form
             action="/admin/products/<%= product._id %>?_method=DELETE"
