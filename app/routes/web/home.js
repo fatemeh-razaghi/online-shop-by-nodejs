@@ -19,6 +19,9 @@ router.get("/products", productController.products);
 //product single page
 router.get("/products/:product", productController.single);
 
+//product payment
+router.post("/products/payment" , productController.payment);
+     
 
 //logout page
 router.get("/logout", (req, res) => {

@@ -3,8 +3,8 @@
     <!--  Post Content Column -->
     <div class="col">
       <img
-        src="<%=product.thumb%>"
-        alt="<%=product.title%>"
+        src="<%= product.thumb%>"
+        alt="<%= product.title%>"
         class="mt-5 d-inline-block"
       />
     </div>
@@ -41,9 +41,9 @@
           برای خرید محصول ابتدا عضو سایت شوید
         </div>
         <% } %>
-        <form action="/add-to-cart" method="POST">
+        <form action="/products/payment" method="POST">
           <button type="submit" class="btn button-color">خرید محصول</button>
-          <input type="hidden" name="productId" value="<%= product._id %>">
+          <input type="hidden" name="product" value="<%= product._id %>">
         </form>
         <!-- Categories Widget -->
         <div class="card my-4">

@@ -16,6 +16,7 @@ const userSchema = Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     rememberToken: { type: String, default: null },
+    buying:[{type:Schema.Types.ObjectId , ref:"Product"}],
   },
   { timestamps: true, toJSON: { virtuals: true } }
 );
