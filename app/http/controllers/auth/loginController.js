@@ -13,13 +13,13 @@ class loginController extends controller {
 
   //proccess of login page
   async loginProccess(req, res, next) {
-      //first read recaptcha validation method from controllers and then read validation data
-      await this.recaptchaValidation(req, res);
-      let result = await this.validationData(req);
+    //first read recaptcha validation method from controllers and then read validation data
+    await this.recaptchaValidation(req, res);
+    let result = await this.validationData(req);
 
-      if (result) return this.login(req, res, next);
+    if (result) return this.login(req, res, next);
 
-      return this.back(req, res);
+    return this.back(req, res);
   }
 
   //login authentication

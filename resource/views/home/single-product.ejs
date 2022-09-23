@@ -32,15 +32,6 @@
       <hr />
       <div class="text-end">
         <h3 class="text-end fw-bold">قیمت: <%=product.price%></h3>
-        <%if(auth.check){%>
-        <div class="alert alert-success w-75">
-          شما عضو سایت هستید میتوانید محصولات مورد نظر خود را خرید کنید
-        </div>
-        <% } else { %>
-        <div class="alert alert-danger w-50">
-          برای خرید محصول ابتدا عضو سایت شوید
-        </div>
-        <% } %>
         <form action="/products/payment" method="POST">
           <button type="submit" class="btn button-color">خرید محصول</button>
           <input type="hidden" name="product" value="<%= product._id %>">

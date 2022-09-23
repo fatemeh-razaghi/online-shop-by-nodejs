@@ -59,8 +59,13 @@ class productController extends controller {
       }
 
       //is Authenticateed?
-      if (req.isAuthenticated()) {
-        return;
+      if (! req.isAuthenticated()) {
+       return this.alertAndBack(req, res, {
+          title: "عدم احراز هویت",
+          text: "برای خرید محصول ابتدا  وارد سایت شوید",
+          icon: "error",
+          button: "بسیار خب",
+        });
       }
 
       //buy proccess

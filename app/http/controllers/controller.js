@@ -1,5 +1,6 @@
 //auto bind package
 const autoBind = require("auto-bind");
+const { time } = require("console");
 
 //express-recaptcha package
 const Recaptcha = require("express-recaptcha").Recaptcha;
@@ -59,6 +60,23 @@ module.exports = class controller {
     });
   }
 
+  //alert for show sweetmessages
+  alert(req, data) {
+    let title = data.title || "",
+      text = data.text || "",
+      icon = data.icon || "info",
+      button = data.button || null,
+      timer = data.timer || 2000;
+
+    req.flash("sweetalert", { title, text, icon, button, timer });
+  }
+
+  //alert for show sweetmessages and back to same page
+  alertAndBack(req, res, data) {
+    this.alert(req, data);
+    this.back(req, res);
+  }
+
   // validate mongo id
   validateMongoId(paramId) {
     if (!isMongoId(paramId)) this.error("چنین آیدی ای ثبت نشده است", 404);
@@ -77,6 +95,6 @@ module.exports = class controller {
   }
   //slug method for URL title
   slug(title) {
-    return title.replace(/([^۰-۹آ-یa-z0-9]|-)+/g , "-")
-}
+    return title.replace(/([^۰-۹آ-یa-z0-9]|-)+/g, "-");
+  }
 };
