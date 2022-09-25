@@ -7,6 +7,9 @@ const router = express.Router();
 const homeController = require("app/http/controllers/homeController");
 const productController = require("app/http/controllers/productController");
 
+//middlewares
+const redirectIfNotAuthenticated = require("app/http/middleware/redirectIfNotAuthenticated");
+
 //main page
 router.get("/", homeController.index);
 
@@ -20,8 +23,17 @@ router.get("/products", productController.products);
 router.get("/products/:product", productController.single);
 
 //product payment
-router.post("/products/payment" , productController.payment);
-     
+router.post(
+  "/products/payment",
+  redirectIfNotAuthenticated.handle,
+  productController.payment
+);
+router.get(
+  "/products/payment/checker",
+  redirectIfNotAuthenticated.handle,
+  productController.checker
+);
+
 
 //logout page
 router.get("/logout", (req, res) => {
