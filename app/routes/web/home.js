@@ -6,6 +6,7 @@ const router = express.Router();
 //homeContoller
 const homeController = require("app/http/controllers/homeController");
 const productController = require("app/http/controllers/productController");
+const userController=require("app/http/controllers/userController")
 
 //middlewares
 const redirectIfNotAuthenticated = require("app/http/middleware/redirectIfNotAuthenticated");
@@ -34,6 +35,9 @@ router.get(
   productController.checker
 );
 
+//user panel routes
+router.get("/user/panel/" , userController.index);
+router.get("/user/panel/history" , userController.history);
 
 //logout page
 router.get("/logout", (req, res) => {

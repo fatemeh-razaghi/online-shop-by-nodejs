@@ -1,0 +1,27 @@
+<%- include(viewPath('home/panel/head')) -%>
+
+
+<div style="margin: 20px; direction: rtl;">
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                <th>مقدار پرداخت</th>
+                <th>محصول خریداری شده</th>
+                <th>وضعیت پرداخت</th>
+        </tr></thead>
+        <tbody>
+            
+            <% payments.docs.forEach(payment => { %> 
+                <tr>
+                    <td><%= payment.price %></td>
+                    <td><%= payment.course.title%></td>
+                    <td><%= payment.payment ? 'موفق' : 'ناموفق' %></td>
+                </tr>
+            <% }) %>
+
+        </tbody>
+    </table>
+
+    <%- include(viewPath('layouts/pagination') ,{ pagination : payments}) %>
+
+</div>

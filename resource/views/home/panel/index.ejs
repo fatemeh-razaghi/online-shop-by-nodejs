@@ -1,0 +1,10 @@
+<%- include(viewPath('home/panel/head')) -%>
+
+<div style="direction: rtl">
+  <h4 class="mt-3 mb-3">اطلاعات کاربری</h4>
+  <ul style="margin: 20px">
+    <li><b>نام کاربری</b> :<%= auth.user.name %></li>
+    <li><b>ایمیل کاربری</b> : <%= auth.user.email %></li>
+  </ul>
+</div>
+<br><br>

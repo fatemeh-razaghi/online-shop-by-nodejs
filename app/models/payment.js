@@ -2,6 +2,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//require mongoose paginate
+const mongoosePaginate = require("mongoose-paginate");
+
 //define a schema of user in DB
 const paymentSchema = Schema(
   {
@@ -13,6 +16,9 @@ const paymentSchema = Schema(
   },
   { timestamps: true }
 );
+
+//use oaginate plugin for payments
+paymentSchema.plugin(mongoosePaginate);
 
 //export userschema in DB
 module.exports = mongoose.model("Payment", paymentSchema);

@@ -24,7 +24,7 @@ class productController extends controller {
       let page = req.query.page || 1;
       let products = await Product.paginate(
         {},
-        { page, sort: { createdAt: 1 }, limit: 2 }
+        { page, sort: { createdAt: 1 }, limit: 10 }
       );
       res.render("admin/products/index", { title: "بخش محصولات", products });
     } catch (err) {
