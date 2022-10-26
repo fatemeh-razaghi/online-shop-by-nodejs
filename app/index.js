@@ -93,6 +93,6 @@ module.exports = class Application {
   //call routers with middlewares
   routers() {
     app.use(require("app/routes/web"));
-    app.use(require("app/routes/api"));
+    // app.use(require("app/routes/api"));
   }
 };
